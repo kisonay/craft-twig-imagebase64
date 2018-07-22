@@ -1,0 +1,1 @@
+{"pluginName":"craft-twig-imagebase64","pluginDescription":"Base64 image encoding via twig.","pluginVersion":"0.1.0","pluginAuthorName":"Brian Yanosik","pluginVendorName":"Doe Enterprises","pluginAuthorUrl":"http://DoeDesign.com/","pluginAuthorGithub":"kisonay","codeComments":["codeComments"],"pluginComponents":["twigextensions"],"apiVersion":"api_version_3_0"}

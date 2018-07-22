@@ -1,0 +1,40 @@
+{
+    "name": "doeenterprises/craft-twig-imagebase64",
+    "description": "Base64 image encoding via twig.",
+    "type": "craft-plugin",
+    "version": "0.1.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "craft-twig-imagebase64"
+    ],
+    "support": {
+        "docs": "https://github.com/kisonay/craft-twig-imagebase64/blob/master/README.md",
+        "issues": "https://github.com/kisonay/craft-twig-imagebase64/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Yanosik",
+            "homepage": "http://DoeDesign.com/"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "doeenterprises\\crafttwigimagebase64\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "craft-twig-imagebase64",
+        "handle": "craft-twig-imagebase64",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/kisonay/craft-twig-imagebase64/master/CHANGELOG.md",
+        "class": "doeenterprises\\crafttwigimagebase64\\Crafttwigimagebase64"
+    }
+}
