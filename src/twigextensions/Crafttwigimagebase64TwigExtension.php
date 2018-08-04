@@ -52,6 +52,7 @@ class Crafttwigimagebase64TwigExtension extends \Twig_Extension
     {
         return [
             new \Twig_SimpleFilter('image64', [$this, 'image64']),
+            new \Twig_SimpleFilter('thumb64', [$this, 'thumb64']),
         ];
     }
 
@@ -66,6 +67,7 @@ class Crafttwigimagebase64TwigExtension extends \Twig_Extension
     {
         return [
             new \Twig_SimpleFunction('image64', [$this, 'image64']),
+            new \Twig_SimpleFunction('thumb64', [$this, 'thumb64']),
         ];
     }
 
@@ -89,9 +91,32 @@ class Crafttwigimagebase64TwigExtension extends \Twig_Extension
             // Die quietly.
             return false;
         }
+        
+        $binary = file_get_contents(Craft::$app->getAssets()->getThumbPath($asset, 100, 100));
 
         // Get the file.
-        $binary = file_get_contents($asset->getCopyOfFile());
+        //$binary = file_get_contents($asset->getCopyOfFile());
+
+        // Return the string.
+        return $inline ? sprintf('data:image/%s;base64,%s', $asset->getExtension(), base64_encode($binary)) : base64_encode($binary);
+    }
+    
+    public function thumb64($asset, $width=100, $inline = false)
+    {
+        // Make sure it is an asset object
+        if (!$asset instanceof Asset) {
+          // Die quietly.
+            return false;
+        }
+
+        // Make sure the mime type is an image.
+        if (0 !== strpos($asset->getMimeType(), 'image/')) {
+            // Die quietly.
+            return false;
+        }
+        
+        // Get the file.
+        $binary = file_get_contents(Craft::$app->getAssets()->getThumbPath($asset, $width));
 
         // Return the string.
         return $inline ? sprintf('data:image/%s;base64,%s', $asset->getExtension(), base64_encode($binary)) : base64_encode($binary);
