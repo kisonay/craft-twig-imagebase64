@@ -91,11 +91,9 @@ class Crafttwigimagebase64TwigExtension extends \Twig_Extension
             // Die quietly.
             return false;
         }
-        
-        $binary = file_get_contents(Craft::$app->getAssets()->getThumbPath($asset, 100, 100));
 
         // Get the file.
-        //$binary = file_get_contents($asset->getCopyOfFile());
+        $binary = file_get_contents($asset->getCopyOfFile());
 
         // Return the string.
         return $inline ? sprintf('data:image/%s;base64,%s', $asset->getExtension(), base64_encode($binary)) : base64_encode($binary);
@@ -114,7 +112,7 @@ class Crafttwigimagebase64TwigExtension extends \Twig_Extension
             // Die quietly.
             return false;
         }
-        
+
         // Get the file.
         $binary = file_get_contents(Craft::$app->getAssets()->getThumbPath($asset, $width));
 
