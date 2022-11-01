@@ -26,7 +26,7 @@ use Craft;
  * @package   Crafttwigimagebase64
  * @since     1.0.0
  */
-class Crafttwigimagebase64TwigExtension extends \Twig_Extension
+class Crafttwigimagebase64TwigExtension extends \Twig\Extension\AbstractExtension
 {
     // Public Methods
     // =========================================================================
@@ -51,8 +51,8 @@ class Crafttwigimagebase64TwigExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('image64', [$this, 'image64']),
-            new \Twig_SimpleFilter('thumb64', [$this, 'thumb64']),
+            new \Twig\TwigFilter('image64', [$this, 'image64']),
+            new \Twig\TwigFilter('thumb64', [$this, 'thumb64']),
         ];
     }
 
@@ -66,8 +66,8 @@ class Crafttwigimagebase64TwigExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('image64', [$this, 'image64']),
-            new \Twig_SimpleFunction('thumb64', [$this, 'thumb64']),
+            new \Twig\TwigFunction('image64', [$this, 'image64']),
+            new \Twig\TwigFunction('thumb64', [$this, 'thumb64']),
         ];
     }
 
