@@ -2,7 +2,6 @@
   "name": "kisonay/craft-twig-imagebase64",
   "description": "Base64 encode images within twig templates.",
   "type": "craft-plugin",
-  "version": "1.0.4",
   "keywords": [
     "craft",
     "cms",
@@ -20,7 +19,11 @@
     "homepage": "https://github.com/kisonay/"
   }],
   "require": {
-    "craftcms/cms": "^3.0.0"
+    "php": "^8.0",
+    "craftcms/cms": "^4.0"
+  },
+  "require-dev": {
+    "craftcms/rector": "dev-main"
   },
   "autoload": {
     "psr-4": {
@@ -34,5 +37,13 @@
     "hasCpSection": false,
     "changelogUrl": "https://raw.githubusercontent.com/kisonay/craft-twig-imagebase64/master/CHANGELOG.md",
     "class": "kisonay\\crafttwigimagebase64\\Crafttwigimagebase64"
-  }
+  },
+  "config": {
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
