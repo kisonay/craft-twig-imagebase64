@@ -11,6 +11,7 @@
 namespace kisonay\crafttwigimagebase64\twigextensions;
 
 use kisonay\crafttwigimagebase64\Crafttwigimagebase64;
+use kisonay\crafttwigimagebase64\helpers\Thumbs as ThumbsHelper;
 use craft\elements\Asset;
 
 use Craft;
@@ -98,7 +99,7 @@ class Crafttwigimagebase64TwigExtension extends \Twig\Extension\AbstractExtensio
         // Return the string.
         return $inline ? sprintf('data:image/%s;base64,%s', $asset->getExtension(), base64_encode($binary)) : base64_encode($binary);
     }
-    
+
     public function thumb64($asset, $width=100, $inline = false)
     {
         // Make sure it is an asset object
@@ -114,7 +115,7 @@ class Crafttwigimagebase64TwigExtension extends \Twig\Extension\AbstractExtensio
         }
 
         // Get the file.
-        $binary = file_get_contents(Craft::$app->getAssets()->getThumbPath($asset, $width));
+        $binary = file_get_contents(ThumbsHelper::getUrl($asset, $width));
 
         // Return the string.
         return $inline ? sprintf('data:image/%s;base64,%s', $asset->getExtension(), base64_encode($binary)) : base64_encode($binary);
